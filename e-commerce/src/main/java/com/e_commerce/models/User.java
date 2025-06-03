@@ -11,8 +11,11 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public class User {
 
 	@Id
@@ -31,14 +34,19 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	private Role role;
 	private LocalDate dateOfBirth;
+	private boolean active;
 	
 	public User() {
 		super();
 	}
 
 	
+	
+	
+
+
 	public User(int id, String firstName, String lastName, String email, String phone, String password, String country,
-			String city, String address, Role role, LocalDate dateOfBirth) {
+			String city, String address, Role role, LocalDate dateOfBirth, boolean active) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -51,7 +59,12 @@ public class User {
 		this.address = address;
 		this.role = role;
 		this.dateOfBirth = dateOfBirth;
+		this.active = active;
 	}
+
+
+
+
 
 
 	public int getId() {
@@ -142,6 +155,17 @@ public class User {
 
 	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
+	}
+
+
+	public boolean isActive() {
+		return active;
+	}
+
+
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 	
 	

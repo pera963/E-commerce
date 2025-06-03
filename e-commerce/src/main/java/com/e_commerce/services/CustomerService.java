@@ -31,6 +31,7 @@ public class CustomerService {
 	  customer.setBankAccount(customerDto.getBankAccount());
 	  customer.setLoyaltyPoints(0);
 	  customer.setRole(Role.CUSTOMER);
+	  customer.setActive(false);
 	  return customerRepository.save(customer); 
 	}
 	

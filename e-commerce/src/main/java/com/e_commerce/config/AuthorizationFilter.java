@@ -29,7 +29,7 @@ public class AuthorizationFilter extends OncePerRequestFilter{
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
-		if(request.getServletPath().contains("/api/login")){
+		if(request.getServletPath().contains("/api/login") || request.getServletPath().contains("/api/customer/register")){
 	          filterChain.doFilter(request, response);
 	      }
 	      else{
